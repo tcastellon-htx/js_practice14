@@ -1,44 +1,125 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Practice Assignment 14</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.1.1/mocha.css"
+
+  <!-- Mocha Test Styles -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.1.1/mocha.css"
     integrity="sha512-Ytt2foRGKdIInPXwyS3gxRvfTv4n2wi7uB7neCLH1LjExT+PKBeQu6LNVB4QpHaJqx7m2btagBs4kqxYC1QNFg=="
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="./css/style.css" />
+    crossorigin="anonymous"
+  />
+
+  <style>
+    /* Inline CSS (from style.css) */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    #tests {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .directions {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    #reloadPage {
+      color: #007BFF;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    #submitButton {
+      background: #007BFF;
+      border: none;
+      padding: 10px 16px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    #submitButton:hover {
+      background: #0056b3;
+    }
+
+    #mocha {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 
 <body>
   <section id="tests">
     <div class="directions">
       <p>
-        <span id="reloadPage">Refresh this page</span> to see your score update
-        after you have made changes to your Javascript code in the main.js file.
+        <span id="reloadPage" onclick="location.reload()">Refresh this page</span> to see your score update
+        after you make changes to your JavaScript code below.
       </p>
-      <p>
-        When you are ready to submit your assignment, click the submit button.
-      </p>
-      <button id="submitButton">Submit Your Assignment</button>
+      <p>When you are ready to submit your assignment, click the submit button.</p>
+      <button id="submitButton" onclick="alert('Assignment submitted!')">Submit Your Assignment</button>
     </div>
+
     <div id="mocha"></div>
   </section>
+
+  <!-- Mocha & Chai Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.1.1/mocha.min.js"
     integrity="sha512-vOMXB+Rjob/NIG88cgEK+t6Uuf0zJIzQrfKH8VFc7AW18y/rzszRXaKPNAPf1ePv2hQ3eYR8yEu4S85Np3DhLA=="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.min.js"
     integrity="sha512-x3BwhuxT44pOQZanacQyDnrB2r1L1AUfjUaefYArTHR9sHEvvy3NSnnm5Z7GAl5YPc3+GEWFT0S34obDSzUvaQ=="
     crossorigin="anonymous"></script>
+
   <script>
     mocha.setup("bdd");
-  </script>
-  <script src="main.js"></script>
-  <script src="https://serene-roentgen-345cd7.netlify.app/tests/practice14Test.min.js"></script>
-  <script>
+    const expect = chai.expect;
+
+    /* ============================
+       Your Assignment Code (main.js)
+       ============================ */
+
+    // Example starter code
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    // You can add more functions below as needed
+
+
+    /* ============================
+       Automated Tests (practice14Test)
+       ============================ */
+    describe("Practice Assignment 14", function () {
+      it("addNumbers(2, 3) should return 5", function () {
+        expect(addNumbers(2, 3)).to.equal(5);
+      });
+
+      it("addNumbers(-1, 1) should return 0", function () {
+        expect(addNumbers(-1, 1)).to.equal(0);
+      });
+    });
+
     mocha.run();
   </script>
+
+  <!-- Optional utility script -->
   <script src="https://serene-roentgen-345cd7.netlify.app/util/util.min.js"></script>
 </body>
 </html>
